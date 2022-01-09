@@ -1,7 +1,5 @@
 package hello.hellospring.controller;
 
-import com.fasterxml.jackson.annotation.JsonSetter;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
