@@ -34,6 +34,24 @@ class MemoryMemberRepositoryTest {
         // 좌측의 test탭에서 error로 바로 확인 가능
         // 동일하면 문제x, 다르면 error 발생
         Assertions.assertEquals(member, result); // null이면 에러
+    }
 
+    @Test
+    public void findByName(){
+        // member1 생성 및 Name 설정 후 저장
+        Member member1 = new Member();
+        member1.setName("spring1");
+        repository.save(member1);
+        
+        // member2 생성 및 Name 설정 후 저장
+        Member member2 = new Member();
+        member2.setName("spring2");
+        repository.save(member2);
+
+        
+        // repository에서 findByName()과 Name을 통해 검색
+        Member result = repository.findByName("spring1").get(); // spring2이면 아랫줄에서 에러
+        
+        Assertions.assertEquals(member1, result); 
     }
 }
